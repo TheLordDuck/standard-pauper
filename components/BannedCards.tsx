@@ -11,6 +11,11 @@ const bannedCards: BannedCard[] = [
     link: "https://scryfall.com/card/fdn/15/hare-apparent",
   },
   {
+    name: "Tempest Hawk",
+    image: "/banned/tdm-31-tempest-hawk.jpg",
+    link: "https://scryfall.com/card/tdm/31/tempest-hawk",
+  },
+  {
     name: "Slime Against Humanity",
     image: "/banned/mkm-177-slime-against-humanity.jpg",
     link: "https://scryfall.com/card/mkm/177/slime-against-humanity",

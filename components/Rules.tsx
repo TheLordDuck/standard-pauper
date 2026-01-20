@@ -61,7 +61,16 @@ export default function Rules() {
             Hare Apparent
           </a>
         </li>
-
+        <li>
+          <a
+            href="https://scryfall.com/card/tdm/31/tempest-hawk"
+            className="text-purple-600 font-medium hover:text-purple-800 hover:underline transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Tempest Hawk
+          </a>
+        </li>
         <li>
           <a
             href="https://scryfall.com/card/mkm/177/slime-against-humanity"
