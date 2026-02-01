@@ -20,7 +20,7 @@ export default function HowToPlay() {
       {items.map((item) => (
         <div
           key={item.title}
-          className="bg-purple-600 text-white rounded-xl p-6 text-center shadow"
+          className="bg-[var(--primary-color)] text-white rounded-xl p-6 text-center shadow"
         >
           <h3 className="font-bold text-lg">{item.title}</h3>
           <p className="font-bold mt-2 text-sm opacity-90">{item.text}</p>

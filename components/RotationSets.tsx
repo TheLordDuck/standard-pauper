@@ -55,7 +55,7 @@ const rotations: RotationYear[] = [
 export default function RotationSets() {
   return (
     <section className="max-w-5xl mx-auto">
-      <h2 className="text-center text-2xl font-bold text-purple-600 mb-10">
+      <h2 className="text-center text-2xl font-bold text-[var(--primary-color)] mb-10">
         Standard Rotations
       </h2>
 
@@ -67,7 +67,7 @@ export default function RotationSets() {
           >
             {/* Header */}
             <div className="mb-4 text-center">
-              <h3 className="text-lg font-semibold text-purple-600">
+              <h3 className="text-lg font-semibold text-[var(--primary-color)]">
                 Legal until: {rotation.legalUntil}
               </h3>
             </div>
@@ -77,14 +77,14 @@ export default function RotationSets() {
               {rotation.sets.map((set) => (
                 <div
                   key={set.name}
-                  className="flex items-center justify-center w-24 h-24 bg-slate-50 rounded-xl shadow-sm hover:shadow-md transition hover:ring-2 hover:ring-purple-300 "
+                  className="flex items-center justify-center w-24 h-24 rounded-xl transition"
                 >
                   <img
                     src={set.image}
                     alt={set.name}
                     width={96}
                     height={96}
-                    className="max-h-16 object-contain transition hover:scale-105 hover:brightness-110"
+                    className="max-h-16 object-contain transition hover:scale-150 hover:brightness-110"
                   />
                 </div>
               ))}

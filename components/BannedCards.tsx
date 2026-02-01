@@ -25,7 +25,7 @@ const bannedCards: BannedCard[] = [
 export default function BannedCards() {
   return (
     <section className="max-w-5xl mx-auto">
-      <h2 className="text-center text-2xl font-bold text-purple-600 mb-8">
+      <h2 className="text-center text-2xl font-bold text-[var(--primary-color)] mb-8">
         Banned Cards
       </h2>
 
@@ -40,7 +40,7 @@ export default function BannedCards() {
           >
             <div className="relative rounded-xl overflow-hidden transition transform group-hover:scale-105">
               {/* Glow */}
-              <div className="absolute inset-0 bg-purple-500/40 blur-xl opacity-0 group-hover:opacity-100 transition" />
+              <div className="absolute inset-0 bg-[var(--primary-color)] blur-xl opacity-0 group-hover:opacity-100 transition" />
 
               {/* Card image */}
               <img
@@ -56,7 +56,7 @@ export default function BannedCards() {
             </div>
 
             {/* Name */}
-            <p className="mt-2 text-center text-sm font-medium text-slate-700 group-hover:text-purple-600 transition">
+            <p className="mt-2 text-center text-sm font-medium text-slate-700 group-hover:text-[var(--primary-color)] transition">
               {card.name}
             </p>
           </a>
