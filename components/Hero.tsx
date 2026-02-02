@@ -1,4 +1,5 @@
 "use client";
+import { parseUrlCards } from "@/utils/ParseUrlCards";
 import { useState } from "react";
 
 export default function Hero() {
@@ -7,60 +8,19 @@ export default function Hero() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
-    window.open(
-      "https://scryfall.com/search?as=grid&extras=true&lang=any&order=name&q=%28name%3A%22" +
-        query +
-        "%22%29+and+%28f%3Astandard+r%3Ac%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards",
-      "_blank",
-    ); //to open new page
+    window.open(parseUrlCards(query)); //to open new page
   };
 
   const buttons = [
-    {
-      label: "All Cards",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "all",
-    },
-    {
-      label: "White",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+c%3Aw%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "white",
-    },
-    {
-      label: "Blue",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+c%3Au%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "blue",
-    },
-    {
-      label: "Black",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+c%3Ab%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "black",
-    },
-    {
-      label: "Red",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+c%3Ar%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "red",
-    },
-    {
-      label: "Green",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+c%3Ag%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "green",
-    },
-    {
-      label: "Multicolor",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+c%3Am%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "multi",
-    },
-    {
-      label: "Colorless",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+c%3Ac+-type%3Aland%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "colorless",
-    },
-    {
-      label: "Lands",
-      href: "https://scryfall.com/search?q=%28%29+and+%28f%3Astandard+r%3Ac+type%3Aland%29+and+%28e%3Afdn+or+e%3Awoe+or+e%3Alci+or+e%3Amkm+or+e%3Aotj+or+e%3Ablb+or+e%3Adsk+or+e%3Adft+or+e%3Atdm+or+e%3Afin+or+e%3Aeoe+or+e%3Aspm+or+e%3Atla+or+e%3Aecl+or+e%3Atmt%29&unique=cards&as=grid&order=name",
-      style: "lands",
-    },
+    { label: "All Cards", color: "all", style: "all" },
+    { label: "White", color: "white", style: "white" },
+    { label: "Blue", color: "blue", style: "blue" },
+    { label: "Black", color: "black", style: "black" },
+    { label: "Red", color: "red", style: "red" },
+    { label: "Green", color: "green", style: "green" },
+    { label: "Multicolor", color: "multi", style: "multi" },
+    { label: "Colorless", color: "colorless", style: "colorless" },
+    { label: "Lands", color: "lands", style: "lands" },
   ];
 
   const styles: Record<string, string> = {
@@ -96,7 +56,7 @@ export default function Hero() {
         {buttons.map((btn) => (
           <a
             key={btn.label}
-            href={btn.href}
+            href={parseUrlCards("", btn.color)}
             className={`px-5 py-2 rounded-full text-sm font-medium transition shadow-sm hover:shadow-md ${styles[btn.style]}`}
           >
             {btn.label}
