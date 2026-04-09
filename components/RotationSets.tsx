@@ -43,7 +43,7 @@ const rotations: RotationYear[] = [
     sets: [
       { name: "ECL", image: "/sets/2029/ECL.png" },
       { name: "TMT", image: "/sets/2029/TMT.png" },
-      { name: "???", image: "/sets/2029/question_mark.png" },
+      { name: "SOS", image: "/sets/2029/SOS.png" },
       { name: "???", image: "/sets/2029/question_mark.png" },
       { name: "???", image: "/sets/2029/question_mark.png" },
       { name: "???", image: "/sets/2029/question_mark.png" },

@@ -14,6 +14,7 @@ const sets = {
     avatar: ["tla"],
     lorwyn_eclipsed: ["ecl"],
     teenage_mutant_ninja_turtles: ["tmt"],
+    secrets_of_strixheaven: ["sos"],
 };
 
 export default sets;    
