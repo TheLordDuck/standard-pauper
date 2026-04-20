@@ -36,6 +36,16 @@ const buildColorQuery = (color?: string) => {
     return map[color] ?? "";
 };
 
+const buildBannedCardsQuery = () => {
+    const bannedCards = [
+        "Hare Apparent",
+        "Hopeless Nightmare",
+        "Slime Against Humanity"
+    ];
+
+    return bannedCards.map(name => `-name:"${name}"`).join(" and ");
+};
+
 export const parseUrlCards = (name?: string, color?: string) => {
     const base = "https://scryfall.com/search?q=";
 
@@ -59,6 +69,7 @@ export const parseUrlCards = (name?: string, color?: string) => {
 
     // Language
     parts.push("lang:en");
+    parts.push(`(${buildBannedCardsQuery()})`);
 
     const query = parts.join(" and ");
 

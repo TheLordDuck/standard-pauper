@@ -74,9 +74,9 @@ export default function Rules() {
         </li>
         <li>
           <SetLink
-            name="Tempest Hawk"
-            image="/banned/tdm-31-tempest-hawk.jpg"
-            href="https://scryfall.com/card/tdm/31/tempest-hawk"
+            name="Hopeless Nightmare"
+            image="/banned/woe-95-hopeless-nightmare.png"
+            href="https://scryfall.com/card/woe/95/hopeless-nightmare"
           />
         </li>
         <li>
