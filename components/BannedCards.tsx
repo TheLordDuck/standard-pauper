@@ -11,6 +11,11 @@ const bannedCards: BannedCard[] = [
     link: "https://scryfall.com/card/fdn/15/hare-apparent",
   },
   {
+    name: "Salt Road Packbeast",
+    image: "/banned/tdm-23-salt-road-packbeast.png",
+    link: "https://scryfall.com/card/tdm/23/salt-road-packbeast",
+  },
+  {
     name: "Hopeless Nightmare",
     image: "/banned/woe-95-hopeless-nightmare.png",
     link: "https://scryfall.com/card/woe/95/hopeless-nightmare",

@@ -74,6 +74,13 @@ export default function Rules() {
         </li>
         <li>
           <SetLink
+            name="Salt Road Packbeast"
+            image="/banned/tdm-23-salt-road-packbeast.png"
+            href="https://scryfall.com/card/tdm/23/salt-road-packbeast"
+          />
+        </li>
+        <li>
+          <SetLink
             name="Hopeless Nightmare"
             image="/banned/woe-95-hopeless-nightmare.png"
             href="https://scryfall.com/card/woe/95/hopeless-nightmare"
