@@ -39,6 +39,7 @@ const buildColorQuery = (color?: string) => {
 const buildBannedCardsQuery = () => {
     const bannedCards = [
         "Hare Apparent",
+        "Salt Road Packbeast",
         "Hopeless Nightmare",
         "Slime Against Humanity"
     ];
