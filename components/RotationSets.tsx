@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type RotationYear = {
   year: string;
   legalUntil: string;
@@ -44,7 +46,7 @@ const rotations: RotationYear[] = [
       { name: "ECL", image: "/sets/2029/ECL.png" },
       { name: "TMT", image: "/sets/2029/TMT.png" },
       { name: "SOS", image: "/sets/2029/SOS.png" },
-      { name: "???", image: "/sets/2029/question_mark.png" },
+      { name: "MSH", image: "/sets/2029/MSH.png" },
       { name: "???", image: "/sets/2029/question_mark.png" },
       { name: "???", image: "/sets/2029/question_mark.png" },
       { name: "???", image: "/sets/2029/question_mark.png" },
@@ -60,9 +62,9 @@ export default function RotationSets() {
       </h2>
 
       <div className="space-y-8">
-        {rotations.map((rotation) => (
+        {rotations.map((rotation, i) => (
           <div
-            key={rotation.year}
+            key={`${rotation.year}-${i}`}
             className="bg-white rounded-2xl shadow-lg p-6"
           >
             {/* Header */}
@@ -74,12 +76,12 @@ export default function RotationSets() {
 
             {/* Sets */}
             <div className="flex flex-wrap justify-center gap-6">
-              {rotation.sets.map((set) => (
+              {rotation.sets.map((set, i) => (
                 <div
-                  key={set.name}
+                  key={`${rotation.legalUntil}-${set.name}-${i}`}
                   className="flex items-center justify-center w-24 h-24 rounded-xl transition"
                 >
-                  <img
+                  <Image
                     src={set.image}
                     alt={set.name}
                     width={96}

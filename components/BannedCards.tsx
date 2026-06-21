@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type BannedCard = {
   name: string;
   image: string;
@@ -48,9 +50,11 @@ export default function BannedCards() {
               <div className="absolute inset-0 bg-[var(--primary-color)] blur-xl opacity-0 group-hover:opacity-100 transition" />
 
               {/* Card image */}
-              <img
+              <Image
                 src={card.image}
                 alt={card.name}
+                width={160}
+                height={224}
                 className="relative w-40 rounded-xl shadow-lg"
               />
 

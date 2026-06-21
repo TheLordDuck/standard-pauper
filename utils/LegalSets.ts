@@ -15,6 +15,7 @@ const sets = {
     lorwyn_eclipsed: ["ecl"],
     teenage_mutant_ninja_turtles: ["tmt"],
     secrets_of_strixheaven: ["sos"],
+    marvel_super_heroes: ["msh"]
 };
 
 export default sets;    
