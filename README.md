@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Standard Pauper
 
-## Getting Started
+A rules reference and card-browser site for **Pauper Standard**, a community
+format that restricts deckbuilding to cards printed at **common** rarity
+within the current *Standard*-legal card pool.
 
-First, run the development server:
+Live rules, the current rotation, the banlist, and quick links to Scryfall
+searches filtered to only legal commons are all generated from this site.
+
+## Features
+
+- **Browse cards by color** — one-click links to a pre-filtered Scryfall
+  search (commons only, current Standard sets, banned cards excluded).
+- **Card legality search** — look up whether a specific card is legal.
+- **Rotation tracker** — shows which sets are currently legal and when each
+  rotates out.
+- **Banlist** — cards banned from the format, with images and links to their
+  Scryfall pages.
+- **Rules** — the deckbuilding rules for the format (deck/sideboard size,
+  starting life, the common-rarity restriction, etc).
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router) + React 19 + TypeScript
+- [Tailwind CSS](https://tailwindcss.com) v4
+- [ESLint](https://eslint.org)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build      # production build
+npm run start       # serve the production build
+npm run lint         # lint
+npm run lint:fix   # lint and auto-fix
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                  Next.js App Router entry (layout, page, global styles)
+components/           UI sections (Hero, Rules, RotationSets, BannedCards, ...)
+utils/
+  LegalSets.ts         Set codes that make up the current Standard-legal pool
+  ParseUrlCards.ts   Builds Scryfall search URLs (rarity/set/color/banlist filters)
+public/                Static assets (set icons, banned/illegal-rarity card images)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Keeping the format up to date
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Two files drive the format's legality logic and need updating as Standard
+rotates or the banlist changes:
 
-## Deploy on Vercel
+- **`utils/LegalSets.ts`** — add or remove set codes as they enter/leave
+  Standard. This list is used to build the Scryfall query behind every
+  "browse by color" and search link.
+- **`components/Rules.tsx`**, **`components/BannedCards.tsx`**, and
+  `buildBannedCardsQuery` in **`utils/ParseUrlCards.ts`** — keep the banned
+  card list in sync in all three places when a ban/unban is announced.
+- **`components/RotationSets.tsx`** — update the rotation timeline shown on
+  the site.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a standard Next.js app and deploys cleanly to
+[Vercel](https://vercel.com/new) or any Node.js hosting that supports
+Next.js. See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying)
+for details.
+
+## License
+
+[MIT](./LICENSE)
